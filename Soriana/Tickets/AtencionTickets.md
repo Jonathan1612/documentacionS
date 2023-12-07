@@ -43,3 +43,7 @@ Es este apartado los subestados funcionan como otro de los filtor para saber en 
 - *Accion de Usuario:* es cuando solicitamos informaciona al usuario y nos tienen que compartir la informacon faltante, imagenes, usuario o algun otro dato.
 - *En Proceso:* Lo que esta pendiende de procesar o fue asignado por primera ves
 - *Reasignado:* Lo que ya fue atendido y aun falta algo por solucionar, la solucion proporcionada no cubior el problema por completo y el usuario no lo acepto.
+
+Ejemplo de cuando **Seleccionas un Tickert** 
+
+
