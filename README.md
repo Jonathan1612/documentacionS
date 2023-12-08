@@ -219,5 +219,267 @@ Este commit actualiza las versiones de las herramientas de construcción y sus d
 ```
 
 
-# Documentacion de aplicaciones (Codigo)
+# Documentacion de aplicaciones Front (Codigo)
 
+# CountriesHub
+
+Este es un componente Vue.js personalizado llamado "CountriesHub". Componente que muestra un resumen de países, incluyendo un encabezado, gráficos y tablas..
+
+## Propiedades
+| Propiedad | Tipo   | Descripción                          |
+| --------- | ------ | ------------------------------------ |
+| `` |    |  |
+
+## Datos
+| Nombre | Tipo   | Descripción                          |
+| ------ | ------ | ------------------------------------ |
+| `varLocal` |  Boolean  | Variable local que controla si se deben utilizar datos locales o solicitarlos al servidor.  |
+| `varMedia` |  Boolean  | Variable que controla si se deben utilizar datos|
+| `loading` |  Boolean  | Valor booleano que indica si se está cargando la información. |
+| `period` |  Date  | Períodos seleccionado. |
+| `incidentsH` |  Object  | Un objeto que almacena los detalles de los incidentes relevantes.  |
+| `impactsH` |  Object  | NA |
+| `incidentsWH` |  Object  | NA |
+| `impactsWH` |  Object  | NA |
+| `tablesHub` |  Array  | NA |
+| `tablesWithoutHub` |  Array  | NA |
+
+## Métodos
+| Componete    | Descripción                         |
+| --------- |------------------------------------ |
+| `NA`  | NA |
+
+## Servicios
+| Ruta    | Descripcion                         |
+| --------- |------------------------------------ |
+| `/gateway/incidentdashboard/v2/agata/segundaPantallaAnalisisIncidentesPaisesHUB`  | Este servicion  |
+| `/gateway/incidentdashboard/v2/agata/segundaPantallaAnalisisImpactosPaisesHUB`  | Este servicion  |
+| `/gateway/incidentdashboard/v2/agata/segundaPantallaAnalisisIncidentesPaisesNoHUB`  | Este servicion  |
+| `/gateway/incidentdashboard/v2/agata/segundaPantallaAnalisisImpactosPaisesNoHUB`  | Este servicion  |
+| `/gateway/incidentdashboard/v2/agata/segundaPantallaAnalisisPorPaisesTablaPaisesNoHUB`  | Este servicion  |
+| `/gateway/incidentdashboard/v2/agata/segundaPantallaAnalisisPorPaisesTablaPaisesHUB`  | Este servicion  |
+| `/gateway/incidentdashboard/v2/agata/graficaDonaProblemas`  | Este servicion  |
+
+## Ejemplo de Uso
+
+~~~
+Vue
+
+    Servicio: segundaPantallaAnalisisIncidentesPaisesHUB
+
+    api.chartIncidentsForCountryHub({ previous: previous, current: current }).then(response => {
+        this.incidentsH = response
+        const currentPercentageIcRH = parseFloat((parseInt(this.incidentsH.current.quantity) * 100) / (parseInt(this.incidentsH.previous.quantity) + parseInt(this.incidentsH.current.quantity))).toFixed(2)
+        const previousPercentageIcRH = parseFloat((parseInt(this.incidentsH.previous.quantity) * 100) / (parseInt(this.incidentsH.previous.quantity) + parseInt(this.incidentsH.current.quantity))).toFixed(2)
+        this.labelsIncH = [this.incidentsH.previous.year + ': ' + previousPercentageIcRH, this.incidentsH.current.year + ': ' + currentPercentageIcRH]
+        this.seriesIncH = [parseInt(this.incidentsH.previous.quantity), parseInt(this.incidentsH.current.quantity)]
+      }).catch(error => {
+        console.log(error)
+      })
+
+      Servicio: segundaPantallaAnalisisImpactosPaisesHUB
+
+      api.chartImpactsForCountryHub({ previous: previous, current: current }).then(response => {
+        this.impactsH = response
+        const currentPercentageImRH = parseFloat((parseInt(this.impactsH.current.quantity) * 100) / (parseInt(this.impactsH.previous.quantity) + parseInt(this.impactsH.current.quantity))).toFixed(2)
+        const previousPercentageImRH = parseFloat((parseInt(this.impactsH.previous.quantity) * 100) / (parseInt(this.impactsH.previous.quantity) + parseInt(this.impactsH.current.quantity))).toFixed(2)
+        this.labelImpH = [this.impactsH.previous.year + ': ' + previousPercentageImRH, this.impactsH.current.year + ': ' + currentPercentageImRH]
+        this.seriesImpH = [parseInt(this.impactsH.previous.quantity), parseInt(this.impactsH.current.quantity)]
+      }).catch(error => {
+        console.log(error)
+      })
+
+      Servicio: segundaPantallaAnalisisIncidentesPaisesNoHUB
+
+      api.chartIncidentsForCountryWithoutHub({ previous: previous, current: current }).then(response => {
+        this.incidentsWH = response
+        const currentPercentageIcRWH = parseFloat((parseInt(this.incidentsWH.current.quantity) * 100) / (parseInt(this.incidentsWH.previous.quantity) + parseInt(this.incidentsWH.current.quantity))).toFixed(2)
+        const previousPercentageIcRWH = parseFloat((parseInt(this.incidentsWH.previous.quantity) * 100) / (parseInt(this.incidentsWH.previous.quantity) + parseInt(this.incidentsWH.current.quantity))).toFixed(2)
+        this.labelsIncWH = [this.incidentsWH.previous.year + ': ' + previousPercentageIcRWH, this.incidentsWH.current.year + ': ' + currentPercentageIcRWH]
+        this.seriesIncWH = [parseInt(this.incidentsWH.previous.quantity), parseInt(this.incidentsWH.current.quantity)]
+      }).catch(error => {
+        console.log(error)
+      })
+
+      Servicio: segundaPantallaAnalisisImpactosPaisesNoHUB
+
+      api.chartImpactsForCountryWithoutHub({ previous: previous, current: current }).then(response => {
+        this.impactsWH = response
+        const currentPercentageImRWH = parseFloat((parseInt(this.impactsWH.current.quantity) * 100) / (parseInt(this.impactsWH.previous.quantity) + parseInt(this.impactsWH.current.quantity))).toFixed(2)
+        const previousPercentageImRWH = parseFloat((parseInt(this.impactsWH.previous.quantity) * 100) / (parseInt(this.impactsWH.previous.quantity) + parseInt(this.impactsWH.current.quantity))).toFixed(2)
+        this.labelImpWH = [this.impactsWH.previous.year + ': ' + previousPercentageImRWH, this.impactsWH.current.year + ': ' + currentPercentageImRWH]
+        this.seriesImpWH = [parseInt(this.impactsWH.previous.quantity), parseInt(this.impactsWH.current.quantity)]
+      }).catch(error => {
+        console.log(error)
+      })
+
+      Servicio: segundaPantallaAnalisisPorPaisesTablaPaisesNoHUB
+
+      api.tablesForCountryWithoutHub({ previous: previous, current: current }).then(response => {
+        this.tablesWithoutHub = response
+        this.tablesWithoutHub.sort(function (a, b) {
+          if (a.country < b.country) {
+            return -1
+          }
+          if (a.country > b.country) {
+            return 1
+          }
+          return 0
+        })
+        for (let c = 0; this.tablesWithoutHub.length > c; c++) {
+          for (let i = 0; countriesData.length > i; i++) {
+            if (countriesData[i].name === this.tablesWithoutHub[c].country) {
+              this.tablesWithoutHub[c].flag = countriesData[i].flag
+            }
+          }
+        }
+      }).catch(error => {
+        console.log(error)
+      })
+
+      Servicio: segundaPantallaAnalisisPorPaisesTablaPaisesHUB
+
+      api.tablesForCountryHub({ previous: previous, current: current }).then(response => {
+        this.tablesHub = response
+        this.tablesHub.sort(function (a, b) {
+          if (a.country < b.country) {
+            return -1
+          }
+          if (a.country > b.country) {
+            return 1
+          }
+          return 0
+        })
+        for (let c = 0; this.tablesHub.length > c; c++) {
+          for (let i = 0; countriesData.length > i; i++) {
+            if (countriesData[i].name === this.tablesHub[c].country) {
+              this.tablesHub[c].flag = countriesData[i].flag
+            }
+          }
+        }
+        this.loading = false
+      }).catch(error => {
+        console.log(error)
+        this.loading = false
+      })
+
+Axios
+
+    Servicio: segundaPantallaAnalisisIncidentesPaisesHUB
+
+    function chartIncidentsForCountryHub (params) {
+        return Axios.get(`${path}/segundaPantallaAnalisisIncidentesPaisesHUB?aniocurrent=${params.current}&anioprevious=${params.previous}`).then((response) => { return response.data })
+    }
+
+    Servicio: segundaPantallaAnalisisImpactosPaisesHUB
+
+    function chartImpactsForCountryHub (params) {
+        return Axios.get(`${path}/segundaPantallaAnalisisImpactosPaisesHUB?aniocurrent=${params.current}&anioprevious=${params.previous}`).then((response) => { return response.data })
+    }
+
+    Servicio: segundaPantallaAnalisisIncidentesPaisesNoHUB
+
+    function chartIncidentsForCountryWithoutHub (params) {
+        return Axios.get(`${path}/segundaPantallaAnalisisIncidentesPaisesNoHUB?aniocurrent=${params.current}&anioprevious=${params.previous}`).then((response) => { return response.data })
+    }
+
+    Servicio: segundaPantallaAnalisisImpactosPaisesNoHUB
+
+    function chartImpactsForCountryWithoutHub (params) {
+        return Axios.get(`${path}/segundaPantallaAnalisisImpactosPaisesNoHUB?aniocurrent=${params.current}&anioprevious=${params.previous}`).then((response) => { return response.data })
+    }
+
+    Servicio: segundaPantallaAnalisisPorPaisesTablaPaisesNoHUB
+
+    function tablesForCountryWithoutHub (params) {
+        return Axios.get(`${path}/segundaPantallaAnalisisPorPaisesTablaPaisesNoHUB?aniocurrent=${params.current}&anioprevious=${params.previous}`).then((response) => { return response.data })
+    }
+
+    Servicio: segundaPantallaAnalisisPorPaisesTablaPaisesHUB
+
+    function tablesForCountryHub (params) {
+        return Axios.get(`${path}/segundaPantallaAnalisisPorPaisesTablaPaisesHUB?aniocurrent=${params.current}&anioprevious=${params.previous}`).then((response) => { return response.data })
+    }
+
+~~~
+
+## Parámetros de entrada
+| Servicio    | Parametro                        |
+| --------- |----------------------------------- |
+| `chartIncidentsForCountryHub`  | **aniocurrent** , **anioprevious** |
+| `chartImpactsForCountryHub`  | **aniocurrent** , **anioprevious** |
+| `chartIncidentsForCountryWithoutHub`  | **aniocurrent** , **anioprevious** |
+| `chartImpactsForCountryWithoutHub`  | **aniocurrent** , **anioprevious** |
+| `tablesForCountryWithoutHub`  | **aniocurrent** , **anioprevious** |
+| `tablesForCountryHub`  | **aniocurrent** , **anioprevious** |
+
+## Parámetro de salida
+| Servicio  | Tipo      | Descripción                         |
+| --------- | --------- |------------------------------------ |
+| `chartIncidentsForCountryHub`  | Consultar | Consultar |
+| `chartImpactsForCountryHub`  | Consultar | Consultar |
+| `chartIncidentsForCountryWithoutHub`  | Consultar | Consultar |
+| `chartImpactsForCountryWithoutHub`  | Consultar | Consultar |
+| `tablesForCountryWithoutHub`  | Consultar | Consultar |
+| `tablesForCountryHub`  | Consultar | Consultar |
+
+## Servicios
+| Ruta    | Descripcion                         |
+| --------- |------------------------------------ |
+| `NA`  | NA  |
+
+## Ejemplo de Uso
+
+~~~
+Vue
+
+    Servicio: calendario
+
+Axios
+
+    Servicio: calendario
+
+~~~
+
+## Parámetros de entrada
+| Servicio    | Parametro                        |
+| --------- |----------------------------------- |
+| `NA`  | NA |
+
+## Parámetro de salida
+| Servicio  | Tipo      | Descripción                         |
+| --------- | --------- |------------------------------------ |
+| `NA`  | NA | NA |
+
+* ### Respuestas http
+    ~~~
+
+    Servicio: calendario
+
+    
+
+    ~~~
+
+
+## Fecha de liberación de desarrollo
+01/06/2023
+
+## Nombre y correo del desarrollador
+Nombre: Jonathan Alejandro Colin Medina
+
+Correo: jonathanalejandro.colin.contractor@bbva.com
+
+## Componentes hijos
+| Componete    | Descripción                         |
+| --------- |------------------------------------ |
+| `HeaderHub`  | Componente que muestra el encabezado. |
+| `Graph`  | Componente que muestra un gráfico. |
+| `GraphHorizontal`  | Componente de gráfico personalizado. |
+| `TableCountry`  | Componente que muestra una tabla de países. |
+| `TableCountryInf`  | Componente que muestra informacion de una tabla de países. |
+| `HeaderNotHub`  |  Componente que muestra el encabezado. |
+| `Loading`  | Componente utilizado para mostrar un indicador de carga cuando se están cargando los datos. |
+
+## Ejemplo de Uso
+
+    <CountriesHub />
