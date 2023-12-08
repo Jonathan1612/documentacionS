@@ -46,4 +46,39 @@ Es este apartado los subestados funcionan como otro de los filtor para saber en 
 
 Ejemplo de cuando **Seleccionas un Tickert** 
 
+*Resumen:* Aqui se podra ver quien lo reporto, la tienda, fecha, estatus, etc.
+
+![texto_alternativo](./img/PROACTIVANET/resumen.png)
+
+*Nivel de servicio:* Este esta asosiado a la categoria, lo define la categoria.
+
+![texto_alternativo](./img/PROACTIVANET/nivelServicio.png)
+
+*Cronologia:* Aqui se puede ver cuando se creo, quien cambio el estado, cuando se asigno.
+
+![texto_alternativo](./img/PROACTIVANET/cronologia.png)
+
+*Historico de eventos:* Similar a la cronologia pero aqui viene el apartado para ver los cambios que hubo entre valor.
+
+![texto_alternativo](./img/PROACTIVANET/historicoEventos.png)
+
+*Cambios de estato/ subestado:* Similar a la cronologia pero aqui viene el apartado para ver los cambios que hubo entre valor.
+
+![texto_alternativo](./img/PROACTIVANET/historicoEventos.png)
+
+*Participantes:* Similar a la cronologia pero aqui viene el apartado para ver los cambios que hubo entre valor.
+
+![texto_alternativo](./img/PROACTIVANET/historicoEventos.png)
+
+*Mas detalles:* Similar a la cronologia pero aqui viene el apartado para ver los cambios que hubo entre valor.
+
+![texto_alternativo](./img/PROACTIVANET/historicoEventos.png)
+
+
+
+
+
+
+
+
 
