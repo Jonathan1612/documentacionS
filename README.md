@@ -206,6 +206,12 @@
 **Observaciones Adicionales:**
 - La próxima reunión se esta por establecer el horario, ademas de atenderce los temas de los permisos para aceder a los sistemas y aplicaciones.
 
+**Ecenarios**
+
+- ***A***
+- ***B***
+- ***C***
+
 **Aprobación:**
 __________________________
 Nicolas Torres Martines
