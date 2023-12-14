@@ -1,0 +1,3 @@
+Share Point
+
+https://soriana0.sharepoint.com/sites/ROMA/Documentos%20compartidos/Forms/AllItems.aspx?id=%2Fsites%2FROMA%2FDocumentos%20compartidos%2FGeneral%2F01%2E%20Transici%C3%B3n%2F04%2E%20Nivel%202%20No%20SAP%2F02%20Documentaci%C3%B3n%20KTs&p=true&fromShare=true&ga=1&OR=Teams%2DHL&CT=1702395610397&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzExMDIyNDcwNSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D
